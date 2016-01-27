@@ -1,0 +1,70 @@
+<html>
+	<head>
+        <meta charset="utf-8" />
+		<title>PaintBucket Test Suite</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/roboto.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/ripples.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/material.min.css" />
+	</head>
+	<body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <h1>Test suite of PaintBukket</h1>
+                    <div class="alert alert-warning">
+                        <p>
+                            You can run the test suite from this page. Please first open the browser console by pressing
+                            F12 or right click / inspect element. You will see the trace of execution and the results of
+                            assertions. <a href="index.html">Go back to PaintBucket</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-8 col-sm-offset-2">
+                    <p>
+                        <a href="#" class="btn btn-warning" id="run">Run the test suite</a>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-sm-8 col-sm-offset-2">
+                    A random picture will be generated.<br />
+                    <a href="#" id="dl" style="display: none;" class="btn btn-warning btn-xs">Download the generated image by clicking here</a>
+                    <canvas id="canvas"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="js/Exceptions/AssertException.js"></script>
+        <script type="text/javascript" src="js/Exceptions/InvalidImageEncoding.js"></script>
+        <script type="text/javascript" src="js/Exceptions/LinkedListException.js"></script>
+        <script type="text/javascript" src="js/Exceptions/ColorException.js"></script>
+
+        <script type="text/javascript" src="js/DataStructures/LinkedElement.js"></script>
+        <script type="text/javascript" src="js/DataStructures/Head.js"></script>
+        <script type="text/javascript" src="js/DataStructures/DisjointSetsManager.js"></script>
+
+        <script type="text/javascript" src="js/Components/Color.js"></script>
+        <script type="text/javascript" src="js/Components/Pixel.js"></script>
+
+        <script type="text/javascript" src="js/Paint.js"></script>
+        <script type="text/javascript" src="js/Bucket.js"></script>
+
+        <script type="text/javascript" src="js/Tests.js"></script>
+
+        <script type="text/javascript">
+            var testButton = document.getElementById('run');
+
+            testButton.onclick = function(e) {
+                e.preventDefault();
+                Tests.launch(
+                        document.getElementById('canvas')
+                );
+            };
+        </script>
+	</body>
+</html>
+

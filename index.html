@@ -1,0 +1,85 @@
+<html>
+	<head>
+        <meta charset="utf-8" />
+		<title>PaintBucket</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/roboto.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/ripples.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/material.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+	</head>
+	<body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <img src="images/bucket.png" width="100" class="logo" />
+                    <h1 class="site-title">Welcome to PaintBucket <small>by Victor &amp; Quentin</small></h1>
+                    <div class="alert alert-primary">
+                        <p>
+                            Turn a white and black picture to a colored one by a crazy algorithm. Choose a file by
+                            selecting it using the following form, or drag and drop it on the field. <i>Open the browser
+                            console (F12) to see execution time.</i>
+                        </p>
+                    </div>
+                    <div class="panel panel-default upload-form">
+                        <form method="post" action="#" enctype="multipart/form-data" id="pictureForm" class="form-inline">
+                            <label for="picture">
+                                <span class="mdi-image-collections"></span> Choose a picture
+                            </label>
+                            <input id="picture" name="picture" type="file" class="form-control" required="required" accept="image/x-portable-bitmap" />
+                            <input type="submit" value="Paint It !" class="btn btn-primary" /><br />
+ 
+                            <input id="drawPic" type="checkbox" checked="checked" /> <label for="drawPic">Draw picture</label>
+                            <input id="generateDl" type="checkbox" checked="checked" /> <label for="generateDl">Generate download link</label>
+
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm-8 col-sm-offset-2">
+                    <div class="sk-cube-grid loader">
+                        <div class="sk-cube sk-cube1"></div>
+                        <div class="sk-cube sk-cube2"></div>
+                        <div class="sk-cube sk-cube3"></div>
+                        <div class="sk-cube sk-cube4"></div>
+                        <div class="sk-cube sk-cube5"></div>
+                        <div class="sk-cube sk-cube6"></div>
+                        <div class="sk-cube sk-cube7"></div>
+                        <div class="sk-cube sk-cube8"></div>
+                        <div class="sk-cube sk-cube9"></div>
+                    </div>
+                    <a href="#" id="dl" style="display: none;" class="btn btn-primary btn-xs">Download the generated image by clicking here</a>
+                    <canvas id="renderBox"></canvas>
+                    <p>
+                        You may also want to run the test suite. <a href="tests.html" class="btn btn-warning btn-xs">Run tests</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="js/Exceptions/InvalidImageEncoding.js"></script>
+        <script type="text/javascript" src="js/Exceptions/LinkedListException.js"></script>
+        <script type="text/javascript" src="js/Exceptions/ColorException.js"></script>
+
+        <script type="text/javascript" src="js/DataStructures/LinkedElement.js"></script>
+        <script type="text/javascript" src="js/DataStructures/Head.js"></script>
+        <script type="text/javascript" src="js/DataStructures/DisjointSetsManager.js"></script>
+
+        <script type="text/javascript" src="js/Components/Color.js"></script>
+        <script type="text/javascript" src="js/Components/Pixel.js"></script>
+
+        <script type="text/javascript" src="js/Paint.js"></script>
+        <script type="text/javascript" src="js/Bucket.js"></script>
+
+        <script type="text/javascript">
+            Bucket.init(
+                document.getElementById('pictureForm'),
+                document.getElementById('renderBox'),
+                document.getElementsByClassName('loader')[0],
+                document.getElementById('dl'),
+                document.getElementById('disco')
+            );
+        </script>
+	</body>
+</html>
+
